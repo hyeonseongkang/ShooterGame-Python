@@ -66,6 +66,7 @@ def runGame():
     missileList = []
 
     enemy, enemySize, enemyWidth, enemyHeight, enemyPosx, enemyPosy = createEnemy()
+    
 
 
 def main():
