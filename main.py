@@ -54,7 +54,18 @@ def createEnemy():
     return enemy, size, width, height, xpos, ypos
 
 def runGame():
-    print("run")
+    global clock, background, rocket, missile, enemySpeed, coin, score, stage, stageCount
+
+    moveX, moveY, shotCount = 0, 0, 0
+
+    rocketSize, rocketWidth, rocketHeight = getSize(rocket)
+    missileSize, missileWidth, missileHeight = getSize(missile)
+
+    xpos, ypos = (screenWidth / 2) - (rocketWidth / 2), screenHeight * 0.9
+
+    missileList = []
+
+    enemy, enemySize, enemyWidth, enemyHeight, enemyPosx, enemyPosy = createEnemy()
 
 
 def main():
