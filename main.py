@@ -13,6 +13,29 @@ stageCount = 0
 enemyList = [ 'images/alien0.png', 'images/alien1.png', 'images/alien2.png', 'images/rocket1.png', 'images/rocket2.png', ]
 
 
+def writeText(_coin, _score, _stage):
+    global screen
+    if _coin <= 0:
+        gameOverFont = pygame.font.Font('font/bm.ttf', 50)
+        stageFont = pygame.font.Font('font/bm.ttf', 30)
+        gameOver = gameOverFont.render('GAME OVER', True, (255, 0, 0))
+        stage = stageFont.render('STAGE ' + str(_stage), True, (255, 0, 0))
+        textpos = gameOver.get_rect()
+        textpos.center = (screenWidth / 2, screenHeight / 2)
+        screen.blit(gameOver, textpos)
+        screen.blit(stage, (130, 278))
+        pygame.display.update()
+        sleep(3)
+        sys.exit()
+    else:
+        font = pygame.font.Font('font/bm.ttf', 15)
+        coin = font.render('COIN: ' + str(_coin), True, (255, 0, 0))
+        score = font.render('SCORE: ' + str(_score), True, (0, 0, 255))
+        stage = font.render('STAGE: ' + str(_stage), True, (255, 0, 0))
+        screen.blit(coin, (0, 0))
+        screen.blit(score, (0, 15))
+        screen.blit(stage, (295 , 0))
+
 def drawImage(_img, _x , _y):
     global screen
     screen.blit(_img, (_x, _y))
