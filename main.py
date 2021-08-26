@@ -132,6 +132,17 @@ def runGame():
 
         enemyPosy += enemySpeed
 
+        if enemyPosy > screenHeight:
+            enemy, enemySize, enemyWidth, enemyHeight, enemyPosx, enemyPosy = createEnemy()
+            coin -= 1
+            stageCount += 2
+            if 5 <= stageCount:
+                stage += 1
+                enemySpeed += 0.5
+                stageCount = 0
+
+
+
 
 
 
