@@ -107,6 +107,31 @@ def runGame():
 
         drawImage(rocket, xpos, ypos)
 
+        if missileList:
+            for i, missilePos in enumerate(missileList):
+                missileList[i][1] = missilePos[1] - 5
+
+                if missilePos[1] < enemyPosy:
+                    if missilePos[0] > enemyPosx and missilePos[0] < enemyPosx + enemyWidth:
+                        missileList.remove(missilePos)
+                        enemy, enemySize, enemyWidth, enemyHeight, enemyPosx, enemyPosy = createEnemy()
+                        stageCount += 1
+                        if 5 <= stageCount:
+                            stage += 1
+                            enemySpeed += 0.5
+                            stageCount = 0
+
+                        score += 1
+
+                if missilePos[1] <= 0:
+                    missileList.remove(missilePos)
+
+        if len(missileList) != 0:
+            for posx, posy in missileList:
+                drawImage(missile, posx, posy)
+
+        enemyPosy += enemySpeed
+
 
 
 
