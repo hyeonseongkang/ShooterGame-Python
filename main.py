@@ -99,7 +99,6 @@ def runGame():
         xpos += moveX
         ypos += moveY
 
-
         if xpos < - (rocketWidth / 2)  or xpos > screenWidth:
             xpos = (screenWidth / 2) - (rocketWidth / 2)
         elif ypos <= 0 or ypos > screenHeight - (rocketHeight / 2):
@@ -141,9 +140,11 @@ def runGame():
                 enemySpeed += 0.5
                 stageCount = 0
 
+        writeText(coin, score, stage)
 
-
-
+        drawImage(enemy, enemyPosx, enemyPosy)
+        pygame.display.update()
+        clock.tick(60)
 
 
 def main():
