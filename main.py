@@ -94,6 +94,18 @@ def runGame():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                     moveX, moveY = 0, 0
 
+        drawImage(background, 0, 0)
+
+        xpos += moveX
+        ypos += moveY
+
+
+        if xpos < - (rocketWidth / 2)  or xpos > screenWidth:
+            xpos = (screenWidth / 2) - (rocketWidth / 2)
+        elif ypos <= 0 or ypos > screenHeight - (rocketHeight / 2):
+            ypos = screenHeight * 0.9
+
+        drawImage(rocket, xpos, ypos)
 
 
 
