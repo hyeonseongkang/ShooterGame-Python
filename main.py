@@ -52,3 +52,20 @@ def createEnemy():
     xpos = random.randrange(0, screenWidth - width)
     ypos = -42
     return enemy, size, width, height, xpos, ypos
+
+def runGame():
+    print("run")
+
+
+def main():
+    global screen, clock, background, rocket, missile
+    pygame.init()
+    screen = pygame.display.set_mode((screenWidth, screenHeight))
+    pygame.display.set_caption('ShooterGame')
+    background = pygame.image.load('images/background.png')
+    rocket = pygame.image.load('images/rocket.png')
+    missile = pygame.image.load('images/missile.png')
+    clock = pygame.time.Clock()
+    runGame()
+
+main()
