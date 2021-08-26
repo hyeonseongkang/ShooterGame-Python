@@ -66,7 +66,36 @@ def runGame():
     missileList = []
 
     enemy, enemySize, enemyWidth, enemyHeight, enemyPosx, enemyPosy = createEnemy()
-    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type in [pygame.KEYDOWN]:
+                if event.key == pygame.K_LEFT:
+                    moveX -= 5
+
+                elif event.key == pygame.K_RIGHT:
+                    moveX += 5
+
+                elif event.key == pygame.K_UP:
+                    moveY -= 5
+
+                elif event.key == pygame.K_DOWN:
+                    moveY += 5
+
+                elif event.key == pygame.K_SPACE:
+                    missileX = xpos + rocketWidth / 2 - (missileWidth / 2)
+                    missileY = ypos - (missileHeight / 2)
+                    missileList.append([missileX, missileY])
+
+            if event.type in [pygame.KEYUP]:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                    moveX, moveY = 0, 0
+
+
+
 
 
 def main():
